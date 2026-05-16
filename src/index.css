@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 218 60% 26%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 97%;
+    --secondary-foreground: 218 60% 26%;
+    --muted: 40 15% 94%;
+    --muted-foreground: 0 0% 54%;
+    --accent: 40 91% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 36 20% 90%;
+    --input: 36 20% 90%;
+    --ring: 40 91% 55%;
+    --radius: 0.625rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif text-navy;
+  }
+
+  h4 {
+    @apply font-sans text-charcoal uppercase tracking-[0.08em] text-sm font-medium;
+  }
+
+  ::selection {
+    background-color: rgba(245, 166, 35, 0.25);
+    color: #1B3A6B;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-[120px];
+  }
+
+  .content-container {
+    @apply max-w-[1200px] mx-auto px-5 md:px-8 lg:px-10;
+  }
+
+  .nav-link-underline {
+    position: relative;
+  }
+
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #F5A623;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link-underline:hover::after {
+    width: 100%;
+  }
+
+  .nav-link-underline.active::after {
+    width: 100%;
+  }
+
+  .text-link {
+    @apply relative text-navy font-medium;
+    text-decoration: none;
+  }
+
+  .text-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #F5A623;
+    transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .text-link:hover::after {
+    width: 100%;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-amber text-white font-medium text-sm rounded-lg transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    @apply -translate-y-0.5;
+    box-shadow: 0 4px 16px rgba(245, 166, 35, 0.35);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-7 py-3.5 bg-transparent text-navy font-medium text-sm rounded-lg border-[1.5px] border-navy transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-navy text-white;
+  }
+
+  .quote-card {
+    @apply border-l-[3px] border-amber pl-6 mb-8;
+  }
+
+  .quote-text {
+    @apply font-serif italic text-xl text-navy leading-relaxed;
+  }
+
+  .quote-attribution {
+    @apply text-sm text-text-muted mt-2 font-sans not-italic;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .reveal.visible {
+    animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .reveal-delay-1 { animation-delay: 0.12s; }
+  .reveal-delay-2 { animation-delay: 0.24s; }
+  .reveal-delay-3 { animation-delay: 0.36s; }
+  .reveal-delay-4 { animation-delay: 0.48s; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal.visible {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
