@@ -44,6 +44,7 @@ export default function Services() {
         opacity: 0,
         duration: 0.7,
         ease: 'power3.out',
+        clearProps: 'all', // Fixes CSS clash
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 80%',
@@ -59,6 +60,7 @@ export default function Services() {
           duration: 0.7,
           stagger: 0.12,
           ease: 'power3.out',
+          clearProps: 'all', // Fixes hover glitch completely
           scrollTrigger: {
             trigger: cardsRef.current,
             start: 'top 85%',
@@ -106,7 +108,7 @@ export default function Services() {
                 className="service-card group bg-white rounded-xl p-8 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-hover hover:border hover:border-amber/20"
               >
                 {/* Image */}
-                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-6">
+                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden mb-6 bg-gray-100">
                   <img
                     src={service.image}
                     alt={service.title}
