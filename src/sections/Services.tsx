@@ -12,7 +12,7 @@ const services = [
     description:
       'Get help with essays, reports, dissertations, and referencing. Book a one-on-one consultation with a writing consultant for tomorrow, not two weeks from now.',
     link: 'Book writing help',
-    image: './assets/writing-desk.jpg', // <--- Added dot here
+    image: import.meta.env.BASE_URL + 'assets/writing-desk.jpg',
   },
   {
     icon: Users,
@@ -20,7 +20,7 @@ const services = [
     description:
       'Find a tutor for your specific course — Maths, Stats, Accounting, Physics, Law, and more. See their availability, ratings, and book instantly.',
     link: 'Find a tutor',
-    image: './assets/tutor-session.jpg', // <--- Added dot here
+    image: import.meta.env.BASE_URL + 'assets/tutor-session.jpg',
   },
   {
     icon: Compass,
@@ -28,7 +28,7 @@ const services = [
     description:
       'Get guidance on course registration, degree planning, and academic probation support. Walk in or book a virtual appointment that fits your schedule.',
     link: 'Speak to an advisor',
-    image: './assets/advisor-meeting.jpg', // <--- Added dot here
+    image: import.meta.env.BASE_URL + 'assets/advisor-meeting.jpg',
   },
 ];
 
